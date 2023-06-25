@@ -1,0 +1,165 @@
+﻿@using Domain.Helpers
+@model List<Application.Models.Cart.AddToCartModel>
+@{
+    double total = Model.Sum(item => item.Amount * item.Quantity);
+}
+
+<!-- Checkout section Start -->
+<section class="checkout-section-2 section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-4 g-3">
+            <div class="col-lg-8">
+                <div class="left-sidebar-checkout">
+                    <div class="checkout-detail-box">
+                        <ul>
+
+                            <li>
+                                <div class="checkout-icon">
+                                    <lord-icon target=".nav-item" src="https://cdn.lordicon.com/oaflahpk.json"
+                                               trigger="loop-on-hover" colors="primary:#0baf9a" class="lord-icon">
+                                    </lord-icon>
+                                </div>
+                                <div class="checkout-box">
+                                    <div class="checkout-title">
+                                        <h4>Phương Thức Thanh Toán</h4>
+                                    </div>
+
+                                    <div class="checkout-detail">
+                                        <div class="row g-4">
+                                            <div class="col-xxl-6">
+                                                <div class="delivery-option">
+                                                    <div class="delivery-category">
+                                                        <div class="shipment-detail">
+                                                            <div
+                                                                class="form-check custom-form-check hide-check-box">
+                                                                <input class="form-check-input" type="radio"
+                                                                       name="standard" id="standard" checked>
+                                                                <label class="form-check-label"
+                                                                       for="standard">
+                                                                    Thanh Toán Khi Nhận Tiền
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            @* <div class="col-xxl-6"> *@
+                                            @*     <div class="delivery-option"> *@
+                                            @*         <div class="delivery-category"> *@
+                                            @*             <div class="shipment-detail"> *@
+                                            @*                 <div *@
+                                            @*                     class="form-check mb-0 custom-form-check show-box-checked"> *@
+                                            @*                     <input class="form-check-input" type="radio" *@
+                                            @*                            name="standard" id="future"> *@
+                                            @*                     <label class="form-check-label" for="future"> *@
+                                            @*                         Future *@
+                                            @*                         Delivery Option *@
+                                            @*                     </label> *@
+                                            @*                 </div> *@
+                                            @*             </div> *@
+                                            @*         </div> *@
+                                            @*     </div> *@
+                                            @* </div> *@
+
+                                            <form>
+                                                <div class="col-12 future-box show">
+                                                    <div class="future-option">
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-md-6">
+                                                                <label>Tên Của Bạn (Bắt buộc)</label>
+                                                                <input type="text" class="form-control" id="CustomerName">
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <label>Số Điện Thoại (Bắt buộc)</label>
+                                                                <input type="text" class="form-control" id="PhoneNumber">
+                                                            </div>
+                                                            
+                                                            <div class="col-md-12">
+                                                                <label>Địa Chỉ (Bắt buộc)</label>
+                                                                <textarea rows="5" class="form-control" id="Address"></textarea>
+                                                            </div>
+                                                            
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="right-side-summery-box">
+                    <div class="summery-box-2">
+                        <div class="summery-header">
+                            <h3>Đơn Hàng Của Bạn</h3>
+                        </div>
+
+                        <ul class="summery-contain">
+                            @foreach (var item in Model)
+                            {
+                                <li>
+                                    <img src="@item.Image"
+                                         class="img-fluid blur-up lazyloaded checkout-image"
+                                         style="width: 50px; height: 50px"
+                                         alt="">
+                                    <h4>
+                                        @item.Title <span>X @item.Quantity</span>
+                                    </h4>
+                                    @{
+                                        var totalEachItem = item.Amount * item.Quantity;
+                                    }
+                                    <h4 class="price">@totalEachItem.FormatDoubleCurrency()đ</h4>
+                                </li>
+                            }
+                        </ul>
+
+                        <ul class="summery-total">
+                            @* <li> *@
+                            @*     <h4>Subtotal</h4> *@
+                            @*     <h4 class="price">$111.81</h4> *@
+                            @* </li> *@
+                            @* *@
+                            @* <li> *@
+                            @*     <h4>Shipping</h4> *@
+                            @*     <h4 class="price">$8.90</h4> *@
+                            @* </li> *@
+                            @* *@
+                            @* <li> *@
+                            @*     <h4>Tax</h4> *@
+                            @*     <h4 class="price">$29.498</h4> *@
+                            @* </li> *@
+                            @* *@
+                            @* <li> *@
+                            @*     <h4>Coupon/Code</h4> *@
+                            @*     <h4 class="price">$-23.10</h4> *@
+                            @* </li> *@
+
+                            <li class="list-total">
+                                <h4>Tổng Tiền (VND)</h4>
+                                <h4 class="price">@total.FormatDoubleCurrency()đ</h4>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button class="btn theme-bg-color text-white btn-md w-100 mt-4 fw-bold"
+                            id="btn-checkout">
+                        Thanh Toán
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Checkout section End -->
+
+<script src="~/web/js/cart/checkout.js"></script>

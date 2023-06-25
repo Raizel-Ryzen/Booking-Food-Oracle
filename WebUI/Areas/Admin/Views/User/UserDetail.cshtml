@@ -1,0 +1,167 @@
+﻿@model Application.Models.User.UserDetailModel
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-sm-8 m-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="title-header option-title">
+                                <h5>Thông Tin Tài Khoản: @Model.Email</h5>
+                            </div>
+                            <hr/>
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-home-tab"
+                                            data-bs-toggle="pill" data-bs-target="#pills-home"
+                                            type="button">
+                                        Thông tin chi tiết
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-profile-tab"
+                                            data-bs-toggle="pill" data-bs-target="#pills-profile"
+                                            type="button">
+                                        Quyền người dùng
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="card-header-1">
+                                            @* <h5>Product Information</h5> *@
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="mb-4 row align-items-center">
+                                                <label
+                                                    class="form-label-title col-lg-3 col-md-4 mb-0">
+                                                    Họ Tên
+                                                </label>
+                                                <div class="col-md-8 col-lg-9">
+                                                    <p style="font-size: 18px">@Model.FullName</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label
+                                                    class="form-label-title col-lg-3 col-md-4 mb-0">
+                                                    Địa Chỉ Email
+                                                </label>
+                                                <div class="col-md-8 col-lg-9">
+                                                    <p style="font-size: 18px">@Model.Email</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label
+                                                    class="form-label-title col-lg-3 col-md-4 mb-0">
+                                                    Quyền Người Dùng
+                                                </label>
+                                                <div class="col-md-8 col-lg-9">
+                                                    <p style="font-size: 18px">@Model.Roles</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel">
+                                    <div class="card-header-1">
+                                        @* <h5>Product Related Permition</h5> *@
+                                    </div>
+                                    <div class="mb-4 row align-items-center">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <form class="theme-form theme-form-2 mega-form">
+                                                                    <div class="row g-sm-4 g-2">
+                                                                        <div class="col-xl-12">
+                                                                            <div class="row roles-form">
+                                                                                <div class="col-12">
+                                                                                    <input type="hidden" id="UserId" value="@Model.Id"/>
+                                                                                    <ul>
+                                                                                        <li>Danh sách quyền :</li>
+                                                                                        <li>
+                                                                                            <input class="checkbox_animated checkall"
+                                                                                                   type="checkbox" id="check-full-role"/>
+                                                                                            <label class="form-check-label m-0"
+                                                                                                   for="check-full-role">
+                                                                                                Tất Cả
+                                                                                            </label>
+                                                                                        </li>
+
+                                                                                        @foreach (var role in Model.ListRolesSystem)
+                                                                                        {
+                                                                                            var disabledStr = role.Name.ToLower().Equals("user") ? "disabled" : "";
+                                                                                            if (Model.ListRole != null && Model.ListRole.Contains(role.Name))
+                                                                                            {
+                                                                                                <li>
+                                                                                                    <input class="checkbox_animated check-it"
+                                                                                                           type="checkbox"
+                                                                                                           value="@role.Name"
+                                                                                                           name="Role"
+                                                                                                           id="@role.Id.ToString()"
+                                                                                                           checked="checked"
+                                                                                                           @disabledStr/>
+                                                                                                    <label class="form-check-label m-0"
+                                                                                                           for="@role.Id.ToString()">
+                                                                                                        @role.Name
+                                                                                                    </label>
+                                                                                                </li>
+                                                                                            }
+                                                                                            else
+                                                                                            {
+                                                                                                <li>
+                                                                                                    <input class="checkbox_animated check-it"
+                                                                                                           type="checkbox"
+                                                                                                           value="@role.Name"
+                                                                                                           name="Role"
+                                                                                                           id="@role.Id.ToString()"
+                                                                                                           @disabledStr/>
+                                                                                                    <label class="form-check-label m-0"
+                                                                                                           for="@role.Id.ToString()">
+                                                                                                        @role.Name
+                                                                                                    </label>
+                                                                                                </li>
+                                                                                            }
+                                                                                        }
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <button class="btn btn-primary ms-auto mt-4" id="btn-submit-update-role">
+                                                                        Cập Nhật Role
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/admin/js/user/user-detail.js" asp-append-version="true"></script>

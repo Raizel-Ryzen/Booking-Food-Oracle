@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+<!-- New Product Add Start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-sm-8 m-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header-2">
+                                <h5>Thêm Mới Bàn Ăn</h5>
+                            </div>
+
+                            <form class="theme-form theme-form-2 mega-form">
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-3 mb-0">
+                                        Tên Bàn
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" 
+                                               type="text"
+                                               id="TableName"
+                                               placeholder="Nhập tên bàn ăn">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-3 mb-0">
+                                        Số Lượng Người Trên Bàn
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" 
+                                               type="text"
+                                               id="SlotNumber"
+                                               placeholder="Nhập số lượng người trên bàn">
+                                    </div>
+                                </div>
+
+                                <button
+                                    style="float: right"
+                                    id="btn-add-new-table"
+                                    class="btn btn-primary me-3">
+                                    Thêm Mới
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New Product Add End -->
+
+<script src="~/admin/js/table/add-new-table.js" asp-append-version="true"></script>

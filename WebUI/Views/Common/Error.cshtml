@@ -1,0 +1,22 @@
+﻿@model Application.Common.Models.ErrorModel    
+<!-- 404 Section Start -->
+    <section class="section-404 section-lg-space">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="image-404">
+                        <img src="~/assets/client/images/inner-page/500.png" class="img-fluid blur-up lazyload" alt="">
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="contain-404">
+                        <h3 class="text-content">@Model.Message</h3>
+                        <button onclick="location.href = '/';"
+                            class="btn btn-md text-white theme-bg-color mt-4 mx-auto">Trở Về Trang Chủ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 404 Section End -->

@@ -1,0 +1,23 @@
+﻿@model List<Application.Models.Categories.CategoryDetailModel>
+
+@{
+    Layout = null;
+}
+
+<li>
+    <div class="category-list">
+        <h5>
+            <a href="javascript:void(0)" onclick="onClickCategory('', '', 'Tất Cả')">Tất Cả</a>
+        </h5>
+    </div>
+</li>
+@foreach (var item in Model)
+{
+    <li>
+        <div class="category-list">
+            <h5>
+                <a href="javascript:void(0)" onclick="onClickCategory('@item.Id', '@item.Id', '@item.Title')">@item.Title</a>
+            </h5>
+        </div>
+    </li>
+}

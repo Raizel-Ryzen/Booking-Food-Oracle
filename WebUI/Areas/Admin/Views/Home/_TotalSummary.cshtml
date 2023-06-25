@@ -1,0 +1,90 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Application.Models.Home.DashboardAdminModel
+@{
+    Layout = null;
+}
+
+<!-- chart caard section start -->
+        <div class="col-sm-6 col-xxl-3 col-lg-6">
+            <div class="main-tiles border-5 border-0  card-hover card o-hidden">
+                <div class="custome-1-bg b-r-4 card-body">
+                    <div class="media align-items-center static-top-widget">
+                        <div class="media-body p-0">
+                            <span class="m-0">Bàn Ăn Còn Trống</span>
+                            <h4 class="mb-0 counter">
+                                @Model.TotalShopApproved
+                                <a href="/Admin/Shop" class="badge badge-light-secondary grow">
+                                    Xem
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="align-self-center text-center">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xxl-3 col-lg-6">
+            <div class="main-tiles border-5 border-0  card-hover card o-hidden">
+                <div class="custome-1-bg b-r-4 card-body">
+                    <div class="media align-items-center static-top-widget">
+                        <div class="media-body p-0">
+                            <span class="m-0">Đơn Hàng Chờ Xác Nhận</span>
+                            <h4 class="mb-0 counter">
+                                @Model.TotalShopAwaitingApproval
+                                <a href="/Admin/Shop" class="badge badge-light-secondary grow">
+                                    Xem
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="align-self-center text-center">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xxl-3 col-lg-6">
+            <div class="main-tiles border-5 border-0  card-hover card o-hidden">
+                <div class="custome-1-bg b-r-4 card-body">
+                    <div class="media align-items-center static-top-widget">
+                        <div class="media-body p-0">
+                            <span class="m-0">Tổng Số Món Ăn</span>
+                            <h4 class="mb-0 counter">
+                                @Model.TotalDealApproved
+                                <a href="/Admin/Product" class="badge badge-light-secondary grow">
+                                    Xem
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="align-self-center text-center">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-xxl-3 col-lg-6">
+            <div class="main-tiles border-5 border-0  card-hover card o-hidden">
+                <div class="custome-1-bg b-r-4 card-body">
+                    <div class="media align-items-center static-top-widget">
+                        <div class="media-body p-0">
+                            <span class="m-0">Tổng Số Hóa Đơn</span>
+                            <h4 class="mb-0 counter">
+                                @Model.TotalDealAwaitingApproval
+                                <a href="/Admin/Product" class="badge badge-light-secondary grow">
+                                    Xem
+                                </a>
+                            </h4>
+                        </div>
+                        <div class="align-self-center text-center">
+                            <i class="ri-database-2-line"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

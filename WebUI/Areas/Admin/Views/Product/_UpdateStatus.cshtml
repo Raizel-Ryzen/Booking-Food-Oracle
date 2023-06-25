@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Domain.Constants
+@using Domain.Enums
+@model Application.Common.Models.ActionWithDialogModel<Application.Models.Product.UpdateStatusProductModel>
+
+@{
+    Layout = null;
+}
+<input id="ProductId" value="@Model.Data.Id" type="hidden"/>
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        @Model.Title
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="theme-form theme-form-2 mega-form">
+    <div class="mb-4 row align-items-center">
+        <select 
+            class="js-example-basic-single w-100" 
+            id="ProductStatus">
+            <option disabled>Chọn trạng thái</option>
+            @if (Model.Data.Status == (int)ProductStatus.Available)
+            {
+                <option value="1" selected="selected">Còn hàng</option>
+                <option value="2">Đã hết</option>
+            }
+            else
+            {
+                <option value="1">Còn hàng</option>
+                <option value="2" selected="selected">Đã hết</option>
+            }
+        </select>
+    </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Hủy</button>
+    <button type="button" 
+            class="btn btn-animation btn-md fw-bold" 
+            id="btn-update-status">
+        Cập Nhật
+    </button>
+</div>
+
+<script src="~/admin/js/product/update-status.js" asp-append-version="true"></script>

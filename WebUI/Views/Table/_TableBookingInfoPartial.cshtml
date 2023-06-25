@@ -1,0 +1,85 @@
+﻿@model Application.Models.Table.UserBookingTableModel
+
+@{
+    Layout = null;
+}
+<input id="TableId" value="@Model.TableId" type="hidden"/>
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        Thông Tin Người Đặt
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            @* <img src="@Model.QRCode" alt="" class="code-mega-border" style="width: 250px; height: 250px"/> *@
+            @* <br/> *@
+            @* <br/> *@
+            <p style="font-size: 20px; text-align: center;"><strong>@Model.TableName</strong></p>
+            <span style="text-align: center;" class="text-danger" id="msg-error-booking"></span>
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label for="CustomerName">Tên Của Bạn (Bắt buộc)</label>
+            <input type="text" class="form-control" id="CustomerName" placeholder="Nhập tên của bạn tại đây"/>
+        </div>
+        <div class="col-12">
+            <label for="PhoneNumber">Số Điện Thoại (Bắt buộc)</label>
+            <input type="text" class="form-control" id="PhoneNumber" placeholder="Nhập số điện thoại tại đây"/>
+        </div>
+        <div class="col-12">
+            <label for="PhoneNumber">Địa Chỉ (Không bắt buộc)</label>
+            <input type="text" class="form-control" id="Address" placeholder="Nhập địa chỉ của bạn tại đây"/>
+        </div>
+        <div class="col-12">
+            <label for="ReceivedDate">Ngày Nhận Bàn (Bắt buộc)</label>
+            <input type="date" class="form-control" id="ReceivedDate"/>
+        </div>
+        <div class="col-12">
+            <label for="ReceivedDate">Giờ Dự Kiến Tới (Bắt buộc)</label>
+            <input type="text" class="form-control" id="IntendTime" placeholder="Nhập giờ dự kiến tới nhận bàn"/>
+        </div>
+        <div class="col-12">
+            <label for="ReceivedDate">Ngày/Tối (Bắt buộc)</label>
+            <div class="col-md-6">
+                <div class="custom-form-check form-check">
+                    <input class="form-check-input mt-0" type="radio" name="TimeInfo" id="IsMorning1" value="Sáng" checked="checked">
+                    <label class="form-check-label" for="IsMorning1">Sáng</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="custom-form-check form-check">
+                    <input class="form-check-input mt-0" type="radio" name="TimeInfo" id="IsMorning11" value="Trưa">
+                    <label class="form-check-label" for="IsMorning11">Trưa</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="custom-form-check form-check">
+                    <input class="form-check-input mt-0" type="radio" name="TimeInfo" id="IsMorning111" value="Chiều">
+                    <label class="form-check-label" for="IsMorning111">Chiều</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="custom-form-check form-check">
+                    <input class="form-check-input mt-0" type="radio" name="TimeInfo" id="IsMorning2" value="Tối">
+                    <label class="form-check-label" for="IsMorning2">Tối</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Hủy</button>
+    <button type="button" class="btn btn-animation btn-md fw-bold" id="btn-submit-table-booking">Đặt Bàn</button>
+</div>
+
+<script src="~/web/js/table/user-booking-table.js" asp-append-version="true"></script>

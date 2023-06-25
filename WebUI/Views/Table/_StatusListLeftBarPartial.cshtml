@@ -1,0 +1,16 @@
+﻿@model List<Application.Models.Table.TableStatusModel>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li>
+        <div class="category-list">
+            <h5>
+                <a href="javascript:void(0)" onclick="onClickTableStatus('@item.Status', '@item.Status', '@item.Title')">@item.Title</a>
+            </h5>
+        </div>
+    </li>
+}

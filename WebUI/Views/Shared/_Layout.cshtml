@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fastkart">
+    <meta name="keywords" content="Fastkart">
+    <meta name="author" content="Fastkart">
+    <link rel="icon" href="~/assets/client/images/favicon/1.png" type="image/x-icon">
+    <title>On-demand last-mile delivery</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/bootstrap.css">
+
+    <!-- wow css -->
+    <link rel="stylesheet" href="~/assets/client/css/animate.min.css"/>
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/font-awesome.css">
+
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/feather-icon.css">
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/slick/slick-theme.css">
+
+    <!-- Iconly css -->
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/bulk-style.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/client/css/vendors/animate.css">
+
+    <!-- Template css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="~/assets/client/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="~/common/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/toast/jquery.toast.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/select2/select2.css">
+    <script src="~/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script src="~/lib/momentJs/moment-with-locales.min.js"></script>
+    <script src="~/lib/toast/jquery.toast.min.js"></script>
+    <script src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/lib/notify/script.min.js"></script>
+    <script src="~/lib/select2/select2.full.min.js"></script>
+    <!-- End Important -->
+    <script src="~/common/js/app-common-ajax.min.js"></script>
+    <script src="~/common/js/app-common-lib.min.js"></script>
+    <script src="~/common/js/app-common-handle-ajax.min.js"></script>
+    <script src="~/web/js/common.js" asp-append-version="true"></script>
+    <script src="~/lib/signalr/signalr.min.js"></script>
+    <script src="~/common/js/app-realtime.js" asp-append-version="true"></script>
+</head>
+<body>
+
+<input type="hidden" id="ApiBaseUrl" value=""/>
+<input type="hidden" id="WebBaseUrl" value=""/>
+
+<!-- Loader Start -->
+    <div class="fullpage-loader" id="loading" style="display: none">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- Loader End -->
+@await Html.PartialAsync("_HeaderPartial")
+
+@RenderBody()
+
+@await Html.PartialAsync("_FooterPartial")
+
+<!-- jquery ui-->
+<script src="~/assets/client/js/jquery-ui.min.js"></script>
+
+<!-- Bootstrap js-->
+<script src="~/assets/client/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="~/assets/client/js/bootstrap/popper.min.js"></script>
+
+<!-- feather icon js-->
+<script src="~/assets/client/js/feather/feather.min.js"></script>
+<script src="~/assets/client/js/feather/feather-icon.js"></script>
+
+<!-- Lazyload Js -->
+<script src="~/assets/client/js/lazysizes.min.js"></script>
+
+<!-- Slick js-->
+<script src="~/assets/client/js/slick/slick.js"></script>
+<script src="~/assets/client/js/slick/slick-animation.min.js"></script>
+<script src="~/assets/client/js/slick/custom_slick.js"></script>
+
+<!-- Auto Height Js -->
+<script src="~/assets/client/js/auto-height.js"></script>
+
+<!-- Timer Js -->
+@* <script src="~/assets/js/timer1.js"></script> *@
+
+<!-- Fly Cart Js -->
+<script src="~/assets/client/js/fly-cart.js"></script>
+
+<!-- Quantity js -->
+<script src="~/assets/client/js/quantity-2.js"></script>
+
+<!-- WOW js -->
+<script src="~/assets/client/js/wow.min.js"></script>
+<script src="~/assets/client/js/custom-wow.js"></script>
+
+<!-- script js -->
+<script src="~/assets/client/js/script.js"></script>
+<script src="~/web/js/layout.js" asp-append-version="true"></script>
+<script src="~/web/js/notification/table-booking-order.js" asp-append-version="true"></script>
+</body>
+</html>

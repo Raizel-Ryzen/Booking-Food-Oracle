@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="title-header option-title d-sm-flex d-block">
+                    <h5>Danh Sách Thể Loại</h5>
+                </div>
+                <div>
+
+                    <div class="table-responsive dashboard-bg-box">
+                        <table class="table" id="category-datatable">
+                            <thead>
+                            <tr>
+                                <th title="Tên Bàn">Tên Thể Loại</th>
+                                <th title="Số Lượng Chỗ Ngồi">Mã Code</th>
+                                <th title="Thao Tác" class="datatable-action">Thao Tác</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/datatables.css">
+<script src="~/lib/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatable/datatables/datatable.custom.js"></script>
+
+<script src="~/admin/js/category/index.js" asp-append-version="true"></script>

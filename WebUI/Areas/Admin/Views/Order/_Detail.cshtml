@@ -1,0 +1,131 @@
+﻿@using Domain.Helpers
+@model Application.Models.Order.OrderDetailModel
+@{
+    Layout = null;
+    var totalAmount = "";
+    var status = "";
+    var clsStatus = "";
+    if (!string.IsNullOrEmpty(Model.OrderInfo.Code))
+    {
+        totalAmount = Model.OrderInfo.TotalAmount.FormatDoubleCurrency() + "đ";
+        switch (Model.OrderInfo.Status)
+        {
+            case 1:
+                status = "Chờ Duyệt Đơn";
+                clsStatus = "label-status-warning";
+                break;
+            case 2:
+                status = "Đã Thanh Toán";
+                clsStatus = "label-status-success";
+                break;
+            case 3:
+                status = "Đang Ship";
+                clsStatus = "label-status-info";
+                break;
+            case 4:
+                status = "Đã Hủy";
+                clsStatus = "label-status-danger";
+                break;
+        }
+    }
+}
+
+<style>
+    #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+    
+    #customers tr:hover {background-color: #ddd;}
+    
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+</style>
+
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        Chi Tiết Hóa Đơn
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<div class="modal-body">
+    @if (string.IsNullOrEmpty(Model.OrderInfo.Code))
+    {
+        <p style="text-align: center">Không tìm thấy đơn hàng</p>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <strong>Mã Đơn Hàng: @Model.OrderInfo.Code.ToUpper()</strong>
+                </p>
+                <p>
+                    <strong>Tên Khách Hàng: @Model.OrderInfo.CustomerName</strong>
+                </p>
+                <p>
+                    <strong>Số Điện Thoại: @Model.OrderInfo.PhoneNumber</strong>
+                </p>
+                <p>
+                    <strong>Địa Chỉ Nhận Hàng: @Model.OrderInfo.Address</strong>
+                </p>
+                <p>
+                    <strong>Trạng Thái: <label class="@clsStatus">@status</label></strong>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <table id="customers">
+                <tr>
+                    <th>Tên Món</th>
+                    <th>Số Lượng</th>
+                    <th>Giá Tiền</th>
+                    <th>Thành Tiền</th>
+                </tr>
+                @foreach (var item in Model.ListItems)
+                {
+                    var isDeleted = "";
+                    if (item.IsDeleted)
+                    {
+                        isDeleted = "(Sản phẩm đã bị xóa)";
+                    }
+                    <tr>
+                        <td>@item.ProductName @isDeleted</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Amount.FormatDoubleCurrency()đ</td>
+                        <td>@item.TotalAmount.FormatDoubleCurrency()đ</td>
+                    </tr>
+                }
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <strong>=@totalAmount</strong>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+    }
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Đóng Lại</button>
+</div>

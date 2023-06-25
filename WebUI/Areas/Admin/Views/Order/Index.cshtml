@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="title-header option-title d-sm-flex d-block">
+                    <h5>Danh Sách Đơn Đặt Hàng</h5>
+                </div>
+                <div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="mb-12 row align-items-center">
+                                            <label class="col-sm-3 col-form-label form-label-title">
+                                                Trạng Thái
+                                            </label>
+                                            <div class="col-sm-9">
+                                                <select id="StatusOption"></select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-4"></div>
+                            <div class="col-4">
+                                <button class="btn btn-solid" id="btn-search-filter">
+                                    Tìm kiếm&ensp;
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive dashboard-bg-box">
+                        <table class="table" id="order-datatable">
+                            <thead>
+                            <tr>
+                                <th title="Mã Đơn">Mã Đơn</th>
+                                <th title="Tên Khách Hàng">Tên Khách Hàng</th>
+                                <th title="Số Điện Thoại">Số Điện Thoại</th>
+                                <th title="Tổng Tiền">Tổng Tiền</th>
+                                <th title="Trạng Thái">Trạng Thái</th>
+                                <th title="Thao Tác" class="datatable-action">Thao Tác</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade theme-modal remove-coupon"
+     aria-hidden="true" 
+     tabindex="-1"
+     id="modal-order-detail">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" id="order-detail-content">
+            
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/datatables.css">
+<script src="~/lib/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatable/datatables/datatable.custom.js"></script>
+
+<script src="~/admin/js/order/index.js" asp-append-version="true"></script>

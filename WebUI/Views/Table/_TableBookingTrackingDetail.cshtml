@@ -1,0 +1,65 @@
+﻿@using Domain.Helpers
+@model Application.Models.TableBooking.TableBookingDetailModel
+@{
+    Layout = null;
+    var status = "";
+    var clsStatus = "";
+    if (!string.IsNullOrEmpty(Model.Code))
+    {
+        switch (Model.Status)
+        {
+            case 1:
+                status = "Đang Chờ Xác Nhận";
+                clsStatus = "label-status-warning";
+                break;
+            case 2:
+                status = "Đặt Bàn Thành Công";
+                clsStatus = "label-status-success";
+                break;
+            case 3:
+                status = "Yêu Cầu Đã Bị Từ Chối";
+                clsStatus = "label-status-danger";
+                break;
+        }
+    }
+}
+
+
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        Chi Tiết Lịch Đặt Bàn
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                <strong>Mã Đặt Bàn: @Model.Code.ToUpper()</strong>
+            </p>
+            <p>
+                <strong>Tên Khách Hàng: @Model.CustomerName</strong>
+            </p>
+            <p>
+                <strong>Số Điện Thoại Khách Hàng: @Model.PhoneNumber</strong>
+            </p>
+            <p>
+                <strong>Địa Chỉ Nhà Hàng: @Model.RestaurantAddress</strong>
+            </p>
+            <p>
+                <strong>Ngày Giờ Đến: Lúc @Model.IntendTime giờ (@Model.TimeInfo), Ngày @Model.ReceivedDate.Date.ToString("dd/MM/yyyy")</strong>
+            </p>
+
+            <p>
+                <strong>Trạng Thái: <label class="@clsStatus">@status</label></strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Đóng Lại</button>
+</div>

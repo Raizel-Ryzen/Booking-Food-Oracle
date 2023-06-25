@@ -1,0 +1,9 @@
+﻿version: "3.8"
+
+services:
+  booking-food:
+    container_name: booking-food
+    restart: always
+    image: huynx11/booking-food:latest
+    ports:
+      - "5008:80"

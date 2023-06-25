@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Domain.Constants
+@model Application.Common.Models.ActionWithDialogModel<Application.Common.Models.DeleteModel>
+
+@{
+    Layout = null;
+}
+<input id="DataId" value="@Model.Data.Id" type="hidden"/>
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        @Model.Title
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+<div class="modal-body">
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Hủy</button>
+    <button type="button" 
+            class="btn btn-animation btn-md fw-bold" 
+            id="btn-delete">
+        Có. Xóa Ngay
+    </button>
+</div>
+
+<script src="~/admin/js/table/delete.js" asp-append-version="true"></script>

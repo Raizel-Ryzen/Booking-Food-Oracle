@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Application.Models.Home.DashboardAdminModel
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <div id="total-summary"></div>
+
+        <div class="card card-table">
+            <div class="card-body">
+                <div class="title-header option-title d-sm-flex d-block">
+                    <h5>Danh Sách Đặt Bàn Chờ Xác Nhận</h5>
+                </div>
+                <div>
+                    <div class="table-responsive dashboard-bg-box">
+                        <table class="table" id="table-booking-datatable">
+                            <thead>
+                            <tr>
+                                <th title="Mã Đặt Bàn">Mã Đặt Bàn</th>
+                                <th title="Tên Bàn">Tên Bàn</th>
+                                <th title="Tên Khách Hàng">Tên Khách Hàng</th>
+                                <th title="Số Điện Thoại">Số Điện Thoại</th>
+                                <th title="Ngày Đặt">Ngày Đặt</th>
+                                <th title="Giờ Dự Kiến Đến">Giờ Dự Kiến Đến</th>
+                                <th title="Trạng Thái">Trạng Thái</th>
+                                <th title="Thao Tác" class="datatable-action">Thao Tác</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="~/lib/datatable/datatables.css">  
+<script src="~/lib/datatable/datatables/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatable/datatables/datatable.custom.js"></script>
+
+<script src="~/admin/js/table-booking/index.js" asp-append-version="true"></script>
+
+<div class="modal fade theme-modal remove-coupon"
+     aria-hidden="true" 
+     tabindex="-1"
+     id="modal-booking-table-detail">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" id="booking-table-detail-content">
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿@model List<Application.Models.Categories.CategoryDetailModel>
+
+<!-- Shop Section Start -->
+<section class="section-b-space shop-section">
+    <div class="container-fluid-lg">
+        <div class="row">
+            <div class="col-custome-3">
+                <div class="left-box wow fadeInUp">
+                    <div class="shop-left-sidebar">
+                        <div class="category-menu">
+                            <h3 id="title-status-select">Trạng Thái</h3>
+                            <ul id="div-status-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-custome-9">
+
+                @await Html.PartialAsync("_BttonSortTableStatusPartial")
+
+                <div id="div-table-list" class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section list-style"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+<script src="~/web/js/table/get-list.js" asp-append-version="true"></script>

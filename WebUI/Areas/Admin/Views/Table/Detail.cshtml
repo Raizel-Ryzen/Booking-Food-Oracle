@@ -1,0 +1,81 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Domain.Constants
+@model Application.Models.Table.TableDetailModel
+
+@{
+    Layout = "_LayoutAdmin";
+}
+
+<!-- New Product Add Start -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-sm-8 m-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-header-2">
+                                <h5>Chỉnh Sửa Bàn Ăn</h5>
+                            </div>
+
+                            <form class="theme-form theme-form-2 mega-form">
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-3 mb-0">
+                                        Tên Bàn
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" 
+                                               type="text"
+                                               id="ProductName"
+                                               placeholder="Nhập tên món ăn"
+                                               value="@Model.Title">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-3 mb-0">
+                                        Số Lượng Chỗ Ngồi
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" 
+                                               type="text"
+                                               id="Amount"
+                                               placeholder="Nhập giá món ăn"
+                                               value="@Model.SlotNumber">
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="mb-4 row align-items-center">
+                                    <label class="col-sm-3 col-form-label form-label-title">
+                                        Mã QR
+                                    </label>
+                                    <div class="col-sm-9">
+                                        <img id="preview-image"
+                                             class="img-fluid w-25 code-mega-border"
+                                             src="@Model.QRCode"
+                                             alt="Image"
+                                             style="width: 250px !important; height: 250px !important">
+                                    </div>
+                                </div>
+                                
+                                <button
+                                    style="float: right"
+                                    id="btn-update-table"
+                                    class="btn btn-primary me-3">
+                                    Cập Nhật
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- New Product Add End -->
+<input type="hidden" id="TableId" value="@Model.Id.ToString()"/>
+
+<script src="~/admin/js/table/update-table.js" asp-append-version="true"></script>

@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Application.Models.Table.UserBookingTableModel
+
+<!-- Shop Section Start -->
+<section class="section-b-space shop-section">
+    <div class="container-fluid-lg">
+        <div class="row">
+            
+            <div class="col-custome-9">
+
+                <div>
+                    <h3>
+                        Bạn đang ngồi @Model.TableName
+                    </h3>
+                </div>
+
+                <div id="div-table-list" class="row g-sm-4 g-3 row-cols-xxl-4 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section list-style"></div>
+
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+<script src="~/web/js/product/get-list-available.js" asp-append-version="true"></script>

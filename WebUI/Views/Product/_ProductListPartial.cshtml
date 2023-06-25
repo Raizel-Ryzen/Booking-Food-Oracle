@@ -1,0 +1,81 @@
+﻿@using Domain.Helpers
+@using Domain.Enums
+@model Domain.Helpers.PagingResult<Application.Models.Product.ProductDetailModel>
+
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model.Data)
+{
+    <div>
+        <div class="product-box-3 h-100 wow fadeInUp product-box" data-wow-delay="0.05s">
+            <div class="product-header">
+                <div class="product-image">
+                    <a href="/deal?q=@item.Url">
+                        <img src="@item.Thumbnail" class="img-fluid blur-up lazyload" alt="@item.Title">
+                    </a>
+                </div>
+
+            </div>
+            <div class="product-footer">
+                <div class="product-detail">
+                    @if (item.Status == (int)ProductStatus.NotAvailable)
+                    {
+                        <span class="span-name text-danger">Đã bán hết</span>
+                    }
+                    else
+                    {
+                        <span class="span-name text-success">Còn hàng</span>
+                    }
+                    <a href="/deal?q=@item.Url">
+                        <h5 class="name">
+                            @item.Title
+                        </h5>
+                    </a>
+                    <p class="text-content mt-1 mb-2 product-content">
+                        @* @item.Description.Truncate(135) *@
+                    </p>
+                    @* <h6 class="unit">SL: </h6> *@
+                    <h5 class="price">
+                        <span class="theme-color">
+                            @item.Amount.FormatDoubleCurrency()đ/@item.UnitName
+                        </span>
+                        <br/>
+                        @* <small style="color: #ff4f4f !important;"> *@
+                        @*     Hoàn tiền  *@
+                        @* </small> *@
+                    </h5>
+                    <div class="add-to-cart-box bg-white">
+                        <button class="btn btn-add-cart addcart-button">
+                        </button>
+                        <div class="cart_qty qty-box open">
+                            <div class="input-group bg-white">
+                                <button type="button" class="qty-left-minus bg-gray"
+                                        data-type="minus" data-field="">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </button>
+                                <input class="form-control input-number qty-input" id="@item.Id.ToString()" type="text"
+                                       name="quantity" value="0">
+                                <button type="button" class="qty-right-plus bg-gray"
+                                        data-type="plus" data-field="">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <p class="text-success hover-link" 
+                       data-id="@item.Id.ToString()" 
+                       style="text-align: center !important;"
+                       onclick="onClickOrder('@item.Id.ToString()', '@item.Title', '@item.Amount', '@item.Thumbnail', '@item.UnitName')">
+                        Đặt Món
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<script src="~/assets/client/js/quantity-2.js"></script>

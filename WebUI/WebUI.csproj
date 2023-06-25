@@ -1,0 +1,92 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Mapster" Version="7.4.0-pre03" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="6.0.9" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.9" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.9" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="6.0.0-preview.4.21253.5" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="6.0.9" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
+      <PackageReference Include="PasswordGenerator" Version="2.1.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.23.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Application\Application.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+      <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="wwwroot\css\site.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\BreeSerif-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\Lato-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\Lora-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\Muli-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\fonts\Philosopher-Regular.ttf" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\pagination\jq-paginator.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\pagination\jquery.twbsPagination.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\lib\pagination\jquery.twbsPagination.min.js" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Brand\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Brand\_UserListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\AccessDenied.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\AccountDeleted.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\Error.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\InitData.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\NotFound.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\_GetHeaderPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\_MenuPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\_OrderDetailPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Common\_PromotionListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cart\Checkout.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cart\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cart\_CartListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Cart\_GetCartFromCheckoutPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\custom.min.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\loading.css" />
+      <_ContentIncludedByDefault Remove="wwwroot\css\social-login-button.css" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Order\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Order\_DetailPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Order\_OrderListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Order\_UpdatePartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Promotion\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Promotion\_AddNewPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Promotion\_PromotionListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Promotion\_UpdatePartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shop\OwnerShop.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Shop\SignUpShop.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\City\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\City\_CityListPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookingOrder\ManageBookingStepOrder.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookingOrder\ManageOrderDeal.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\BookingOrder\_BookingStepOrderPartial.cshtml" />
+      <_ContentIncludedByDefault Remove="wwwroot\web\js\booking-order\manage-order-booking-deal.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Views\User" />
+      <Folder Include="wwwroot\lib\jquery" />
+      <Folder Include="wwwroot\lib\silder-range" />
+      <Folder Include="wwwroot\web\js\user" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <AdditionalFiles Include="Areas\Admin\Views\Order\_Detail.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Order\Index.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Order\_UpdateStatus.cshtml" />
+      <AdditionalFiles Include="Areas\Admin\Views\Product\Index.cshtml" />
+      <AdditionalFiles Include="Views\Table\_TableListPartial.cshtml" />
+    </ItemGroup>
+
+</Project>

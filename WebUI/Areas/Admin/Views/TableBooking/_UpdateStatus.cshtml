@@ -1,0 +1,41 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Domain.Constants
+@using Domain.Enums
+@model Application.Common.Models.ActionWithDialogModel<Application.Models.TableBooking.UpdateStatusTableBookingModel>
+
+@{
+    Layout = null;
+}
+<input id="TableBookingId" value="@Model.Data.Id" type="hidden"/>
+<input id="SessionId" value="@Model.Data.SessionId" type="hidden"/>
+<div class="modal-header d-block text-center">
+    <h5 class="modal-title w-100" id="exampleModalLabel22">
+        @Model.Title
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+<div class="modal-body">
+    <form class="theme-form theme-form-2 mega-form">
+        <div class="mb-4 row align-items-center">
+            <select 
+                class="js-example-basic-single w-100" 
+                id="TableBookingStatus">
+                <option disabled>Chọn trạng thái</option>
+                <option value="2">Xác Nhận Yêu Cầu</option>
+                <option value="3">Từ Chối Yêu Cầu</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Hủy</button>
+    <button type="button" 
+            class="btn btn-animation btn-md fw-bold" 
+            id="btn-update-status">
+        Cập Nhật
+    </button>
+</div>
+
+<script src="~/admin/js/table-booking/update-status.js" asp-append-version="true"></script>

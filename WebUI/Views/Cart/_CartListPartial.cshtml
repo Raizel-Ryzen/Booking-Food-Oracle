@@ -1,0 +1,169 @@
+﻿@using Domain.Helpers
+@model List<Application.Models.Cart.AddToCartModel>
+@{
+    Layout = null;
+    var total = Model.Sum(item => item.Amount * item.Quantity);
+}
+<!-- Cart Section Start -->
+<section class="cart-section section-b-space">
+    <div class="container-fluid-lg">
+        <div class="row g-sm-5 g-3">
+            <div class="col-xxl-9">
+                <div class="cart-table">
+                    <div class="table-responsive-xl">
+                        @if (Model.Count > 0)
+                        {
+                            <table class="table">
+                                <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr class="product-box-contain">
+                                        <td class="product-detail">
+                                            <div class="product border-0">
+                                                <a href="#" class="product-image">
+                                                    <img src="@item.Image"
+                                                         style="width: 75px; height: 75px"
+                                                         class="img-fluid blur-up lazyload" alt="">
+                                                </a>
+                                                <div class="product-detail">
+                                                    <ul>
+                                                        <li class="name">
+                                                            <a href="#">
+                                                                @item.Title
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="price">
+                                            <h4 class="table-title text-content">Giá</h4>
+                                            <h5>
+                                                <span>@item.Amount.FormatDoubleCurrency()đ/@item.Unit</span>
+                                            </h5>
+                                        </td>
+
+                                        <td class="quantity">
+                                            <h4 class="table-title text-content">Số Lượng</h4>
+                                            <div class="quantity-price">
+                                                <div class="cart_qty">
+                                                    <div class="input-group">
+                                                        <button type="button" class="btn qty-left-minus"
+                                                                data-type="minus" data-field="">
+                                                            <i class="fa fa-minus ms-0" aria-hidden="true"></i>
+                                                        </button>
+                                                        <input class="form-control input-number qty-input"
+                                                               type="text"
+                                                               id="@item.Id"
+                                                               name="quantity"
+                                                               value="@item.Quantity">
+                                                        <button type="button" class="btn qty-right-plus"
+                                                                data-type="plus" data-field="">
+                                                            <i class="fa fa-plus ms-0" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <td class="subtotal">
+                                            <h4 class="table-title text-content">Tổng Tiền</h4>
+                                            @{
+                                                var totalEachItem = item.Amount * item.Quantity;
+                                            }
+                                            <h5>@totalEachItem.FormatDoubleCurrency()đ</h5>
+                                        </td>
+
+                                        <td class="save-remove">
+                                            <h4 class="table-title text-content">Chỉnh Sửa</h4>
+                                            <a class="save notifi-wishlist"
+                                               href="javascript:void(0)"
+                                               onclick="onClickOrder('@item.Id', '@item.Title', '@item.Amount', '@item.Image', '@item.Unit')">
+                                                Cập Nhật Số Lượng
+                                            </a>
+                                            <a
+                                                class="remove close_button"
+                                                onclick="onClickRemoveOrder('@item.Id',)"
+                                                href="javascript:void(0)">
+                                                Xóa
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p style="text-align: center">Chưa có đơn hàng nào</p>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xxl-3">
+                <div class="summery-box p-sticky">
+                    <div class="summery-header">
+                        <h3>Tổng Thanh Toán</h3>
+                    </div>
+
+                    @* <div class="summery-contain"> *@
+                    @*     <div class="coupon-cart"> *@
+                    @*         <h6 class="text-content mb-2">Coupon Apply</h6> *@
+                    @*         <div class="mb-3 coupon-box input-group"> *@
+                    @*             <input type="email" class="form-control" id="exampleFormControlInput1" *@
+                    @*                    placeholder="Enter Coupon Code Here..."> *@
+                    @*             <button class="btn-apply">Apply</button> *@
+                    @*         </div> *@
+                    @*     </div> *@
+                    @*     <ul> *@
+                    @*         <li> *@
+                    @*             <h4>Subtotal</h4> *@
+                    @*             <h4 class="price">$125.65</h4> *@
+                    @*         </li> *@
+                    @* *@
+                    @*         <li> *@
+                    @*             <h4>Coupon Discount</h4> *@
+                    @*             <h4 class="price">(-) 0.00</h4> *@
+                    @*         </li> *@
+                    @* *@
+                    @*         <li class="align-items-start"> *@
+                    @*             <h4>Shipping</h4> *@
+                    @*             <h4 class="price text-end">$6.90</h4> *@
+                    @*         </li> *@
+                    @*     </ul> *@
+                    @* </div> *@
+
+                    <ul class="summery-total">
+                        <li class="list-total border-top-0">
+                            <h4>Tổng Tiền (VND)</h4>
+                            <h4 class="price theme-color">@total.FormatDoubleCurrency()đ</h4>
+                        </li>
+                    </ul>
+
+                    <div class="button-group cart-button">
+                        <ul>
+                            <li>
+                                <button onclick="location.href = '/checkout';"
+                                        class="btn btn-animation proceed-btn fw-bold">
+                                    Tiến Hành Thanh Toán
+                                </button>
+                            </li>
+
+                            <li>
+                                <button onclick="location.href = '/';"
+                                        class="btn btn-light shopping-button text-dark">
+                                    <i class="fa-solid fa-arrow-left-long"></i>
+                                    Tiếp Tục Mua Sắm
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Cart Section End -->
+<script src="~/assets/client/js/quantity-2.js"></script>
